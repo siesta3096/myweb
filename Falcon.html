@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Falcon团队 - 人工智能探索者</title>
+  <!-- 引入Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 引入Google字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#0FC6C2',
+            dark: '#1D2939',
+            light: '#F9FAFB',
+            accent: '#722ED1'
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .gradient-bg {
+        background: linear-gradient(135deg, #165DFF 0%, #0FC6C2 100%);
+      }
+    }
+  </style>
+</head>
+
+<body class="font-inter bg-light text-dark antialiased">
+  <!-- 导航栏 -->
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/83c94627f8b44a8fa3d9739eb57f3aac.webp~tplv-a9rns2rl98-24:720:720.webp?rcl=20251128194945B2298AA89321C580C1C9&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1764935386&x-signature=jiGXoTjSCQFQ38xP7oW9ZA%2FMKT0%3D" 
+               alt="Falcon团队Logo" 
+               class="h-10 w-auto mr-3">
+          <span class="text-xl font-bold text-primary">Falcon</span>
+        </div>
+        
+        <!-- 桌面导航 -->
+        <div class="hidden md:flex space-x-8">
+          <a href="#about" class="text-dark hover:text-primary transition-colors font-medium">关于团队</a>
+          <a href="#members" class="text-dark hover:text-primary transition-colors font-medium">团队成员</a>
+          <a href="#vision" class="text-dark hover:text-primary transition-colors font-medium">愿景口号</a>
+          <a href="#rules" class="text-dark hover:text-primary transition-colors font-medium">管理规则</a>
+          <a href="#poster" class="text-dark hover:text-primary transition-colors font-medium">团队海报</a>
+        </div>
+        
+        <!-- 移动端菜单按钮 -->
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-dark hover:text-primary focus:outline-none">
+            <i class="fa fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 移动端导航菜单 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+      <div class="container mx-auto px-4 py-3 space-y-3">
+        <a href="#about" class="block text-dark hover:text-primary transition-colors font-medium">关于团队</a>
+        <a href="#members" class="block text-dark hover:text-primary transition-colors font-medium">团队成员</a>
+        <a href="#vision" class="block text-dark hover:text-primary transition-colors font-medium">愿景口号</a>
+        <a href="#rules" class="block text-dark hover:text-primary transition-colors font-medium">管理规则</a>
+        <a href="#poster" class="block text-dark hover:text-primary transition-colors font-medium">团队海报</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 英雄区域 -->
+  <header class="pt-24 pb-16 md:pt-32 md:pb-24 gradient-bg text-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-center text-center">
+        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/83c94627f8b44a8fa3d9739eb57f3aac.webp~tplv-a9rns2rl98-24:720:720.webp?rcl=20251128194945B2298AA89321C580C1C9&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1764935386&x-signature=jiGXoTjSCQFQ38xP7oW9ZA%2FMKT0%3D" 
+             alt="Falcon团队Logo" 
+             class="h-32 w-auto mb-6 rounded-full shadow-lg bg-white p-2">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-shadow">Falcon团队</h1>
+        <p class="text-xl md:text-2xl max-w-3xl opacity-90">人工智能领域的探索者与建构者</p>
+        <div class="mt-10">
+          <a href="#about" class="bg-white text-primary px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+            了解更多 <i class="fa fa-arrow-down ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 关于团队 -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark">关于我们的团队</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        
+        <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+          <p class="mb-6">
+            Falcon团队是一支专注于人工智能领域的创新团队，由五名对AI技术充满热情的成员组成。我们致力于探索人工智能的未知边界，用算法智慧重塑未来图景。
+          </p>
+          <p>
+            我们相信通过团队协作和技术创新，能够在数据与创新的交汇点上，共同定义下一个技术纪元，跨越硅基与碳基的边界，在数字苍穹书写人类文明新篇。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 团队成员 -->
+    <section id="members" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark">团队成员</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">我们是一支充满活力和创造力的团队，每位成员都有独特的技能和视角</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+          <!-- 成员1 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+            <div class="h-48 bg-primary/10 flex items-center justify-center">
+              <i class="fa fa-user-circle-o text-7xl text-primary/70"></i>
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-xl font-semibold mb-2">陈柯宇</h3>
+              <p class="text-gray-600 text-sm">团队成员</p>
+              <div class="mt-4 flex justify-center space-x-3">
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                  <i class="fa fa-github text-lg"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                  <i class="fa fa-linkedin text-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 成员2 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+            <div class="h-48 bg-primary/10 flex items-center justify-center">
+              <i class="fa fa-user-circle-o text-7xl text-primary/70"></i>
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-xl font-semibold mb-2">李奇骏</h3>
+              <p class="text-gray-600 text-sm">团队成员</p>
+              <div class="mt-4 flex justify-center space-x-3">
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                  <i class="fa fa-github text-lg"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                  <i class="fa fa-linkedin text-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 成员3 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+            <div class="h-48 bg-primary/10 flex items-center justify-center">
+              <i class="fa fa-user-circle-o text-7xl text-primary/70"></i>
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-xl font-semibold mb-2">赵宇辉</h3>
+              <p class="text-gray-600 text-sm">团队成员</p>
+              <div class="mt-4 flex justify-center space-x-3">
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                  <i class="fa fa-github text-lg"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                  <i class="fa fa-linkedin text-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 成员4 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+            <div class="h-48 bg-primary/10 flex items-center justify-center">
+              <i class="fa fa-user-circle-o text-7xl text-primary/70"></i>
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-xl font-semibold mb-2">叶俊豪</h3>
+              <p class="text-gray-600 text-sm">团队成员</p>
+              <div class="mt-4 flex justify-center space-x-3">
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                  <i class="fa fa-github text-lg"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                  <i class="fa fa-linkedin text-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 成员5 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+            <div class="h-48 bg-primary/10 flex items-center justify-center">
+              <i class="fa fa-user-circle-o text-7xl text-primary/70"></i>
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-xl font-semibold mb-2">王学文</h3>
+              <p class="text-gray-600 text-sm">团队成员</p>
+              <div class="mt-4 flex justify-center space-x-3">
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                  <i class="fa fa-github text-lg"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                  <i class="fa fa-linkedin text-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 愿景与口号 -->
+    <section id="vision" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark">团队愿景与口号</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="bg-primary/5 p-8 rounded-2xl border border-primary/20">
+            <h3 class="text-2xl font-bold mb-6 text-primary flex items-center">
+              <i class="fa fa-lightbulb-o mr-3"></i> 团队愿景
+            </h3>
+            <p class="text-gray-700 leading-relaxed italic">
+              "以智能之光照亮未知边界，用算法智慧重塑未来图景——我们是人工智能领域的探索者与建构者，在数据与创新的交汇点上，共同定义下一个技术纪元。"
+            </p>
+          </div>
+          
+          <div class="bg-accent/5 p-8 rounded-2xl border border-accent/20">
+            <h3 class="text-2xl font-bold mb-6 text-accent flex items-center">
+              <i class="fa fa-bullhorn mr-3"></i> 团队口号
+            </h3>
+            <p class="text-gray-700 leading-relaxed text-xl text-center my-8">
+              "跨越硅基与碳基的边界<br>在数字苍穹书写人类文明新篇"
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 管理规则 -->
+    <section id="rules" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark">内部管理规则</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">清晰的规则是团队高效协作的基础</p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+          <!-- 规则标签页导航 -->
+          <div class="flex flex-wrap mb-8 border-b border-gray-200">
+            <button class="rule-tab active py-3 px-6 font-medium text-primary border-b-2 border-primary" data-tab="day1">第一天</button>
+            <button class="rule-tab py-3 px-6 font-medium text-gray-500 hover:text-primary" data-tab="day2">第二天</button>
+            <button class="rule-tab py-3 px-6 font-medium text-gray-500 hover:text-primary" data-tab="day3">第三天</button>
+            <button class="rule-tab py-3 px-6 font-medium text-gray-500 hover:text-primary" data-tab="day4">第四天</button>
+            <button class="rule-tab py-3 px-6 font-medium text-gray-500 hover:text-primary" data-tab="day5">第五天</button>
+          </div>
+          
+          <!-- 规则内容 -->
+          <div class="rule-content" id="day1">
+            <h3 class="text-xl font-bold mb-4 text-dark">团队组建与目标设定</h3>
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">1. 成员介绍与角色分配</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>相互认识，了解背景与技能</li>
+                  <li>明确项目负责人、技术骨干、记录员等角色</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">2. 项目目标与计划制定</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>确定实训项目的具体目标与预期成果</li>
+                  <li>制定详细的项目计划与时间表</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">3. 沟通渠道建立</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>建立微信群、QQ 群或其他沟通平台</li>
+                  <li>确定每日沟通时间与频率</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">4. 设备与资源准备</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>确保电脑、网络、软件等设备和资源到位</li>
+                  <li>熟悉开发环境、工具与数据集</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="rule-content hidden" id="day2">
+            <h3 class="text-xl font-bold mb-4 text-dark">技术学习与分工</h3>
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">1. 技术分享与培训</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>分享人工智能相关知识与经验</li>
+                  <li>针对项目需求进行专项技术培训</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">2. 任务细化与分工</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>将项目任务分解为若干子任务</li>
+                  <li>根据个人特长与兴趣分配任务</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">3. 代码规范与版本控制</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>统一代码风格与命名规范</li>
+                  <li>建立 Git 版本控制仓库，明确提交与合并流程</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">4. 进度跟踪与问题记录</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>制定进度跟踪表，实时更新任务状态</li>
+                  <li>记录遇到的问题与解决方案</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="rule-content hidden" id="day3">
+            <h3 class="text-xl font-bold mb-4 text-dark">开发实施与协作</h3>
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">1. 独立开发与协作</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>按照分工独立完成子任务开发</li>
+                  <li>定期进行代码审查与协作沟通</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">2. 每日站立会议</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>每天固定时间进行站立会议（15 分钟以内）</li>
+                  <li>快速汇报进度、问题与下一步计划</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">3. 问题讨论与解决</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>集中讨论开发过程中遇到的问题</li>
+                  <li>共同寻找解决方案，必要时寻求外部帮助</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">4. 阶段性成果展示</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>展示当天取得的阶段性成果</li>
+                  <li>相互学习，提出改进建议</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="rule-content hidden" id="day4">
+            <h3 class="text-xl font-bold mb-4 text-dark">整合与优化</h3>
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">1. 代码整合与测试</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>将各成员开发的模块进行整合</li>
+                  <li>进行系统测试，排查问题与修复漏洞</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">2. 性能优化与改进</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>针对测试中发现的问题进行性能优化</li>
+                  <li>改进算法、模型或代码结构</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">3. 文档整理与汇报准备</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>整理项目文档，包括技术文档、用户手册等</li>
+                  <li>准备项目汇报 PPT 与演示内容</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">4. 团队反馈与调整</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>团队成员相互反馈，提出改进建议</li>
+                  <li>根据反馈调整项目计划与任务分配</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="rule-content hidden" id="day5">
+            <h3 class="text-xl font-bold mb-4 text-dark">成果展示与总结</h3>
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">1. 项目成果展示</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>向指导老师或其他团队展示项目成果</li>
+                  <li>进行项目演示与讲解</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">2. 项目总结与反思</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>总结项目开发过程中的经验教训</li>
+                  <li>反思团队协作、技术选型、项目管理等方面</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">3. 个人总结与分享</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>撰写个人实训总结，分享收获与成长</li>
+                  <li>提出对团队项目或管理的建议</li>
+                </ul>
+              </div>
+              
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-2 text-primary">4. 评优与表彰</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>根据项目成果与个人表现评选出优秀成员</li>
+                  <li>进行表彰与奖励，激发团队积极性</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 团队海报 -->
+    <section id="poster" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark">团队海报</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-gray-100 p-4 md:p-8 rounded-xl shadow-lg">
+            <img src="1.png" 
+                 alt="Falcon团队海报" 
+                 class="w-full h-auto rounded-lg shadow-md hover:shadow-xl transition-shadow cursor-zoom-in"
+                 id="poster-image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 部署教程 -->
+    <section id="deployment" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark">网站部署教程</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">如何将网站部署到线上供所有人访问</p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="p-6 md:p-8">
+            <h3 class="text-xl font-bold mb-6 text-dark">使用Vercel部署（推荐）</h3>
+            <ol class="space-y-6">
+              <li class="flex">
+                <div class="flex-shrink-0 h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">1</div>
+                <div>
+                  <h4 class="font-semibold text-lg mb-1">准备代码</h4>
+                  <p class="text-gray-700">将上面的完整代码保存为一个HTML文件（例如index.html）</p>
+                </div>
+              </li>
+              
+              <li class="flex">
+                <div class="flex-shrink-0 h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">2</div>
+                <div>
+                  <h4 class="font-semibold text-lg mb-1">创建GitHub仓库</h4>
+                  <p class="text-gray-700">
+                    登录GitHub，创建一个新的仓库，将保存的HTML文件上传到仓库中
+                  </p>
+                </div>
+              </li>
+              
+              <li class="flex">
+                <div class="flex-shrink-0 h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">3</div>
+                <div>
+                  <h4 class="font-semibold text-lg mb-1">注册Vercel账号</h4>
+                  <p class="text-gray-700">
+                    访问<a href="https://vercel.com" class="text-primary hover:underline" target="_blank">Vercel官网</a>，使用GitHub账号注册并登录
+                  </p>
+                </div>
+              </li>
+              
+              <li class="flex">
+                <div class="flex-shrink-0 h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">4</div>
+                <div>
+                  <h4 class="font-semibold text-lg mb-1">导入仓库</h4>
+                  <p class="text-gray-700">
+                    在Vercel dashboard中点击"New Project"，导入刚刚创建的GitHub仓库
+                  </p>
+                </div>
+              </li>
+              
+              <li class="flex">
+                <div class="flex-shrink-0 h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">5</div>
+                <div>
+                  <h4 class="font-semibold text-lg mb-1">部署网站</h4>
+                  <p class="text-gray-700">
+                    保持默认设置，点击"Deploy"按钮，Vercel将自动部署您的网站，部署完成后会提供一个可访问的URL
+                  </p>
+                </div>
+              </li>
+            </ol>
+            
+            <hr class="my-8 border-gray-200">
+            
+            <h3 class="text-xl font-bold mb-6 text-dark">使用GitHub Pages部署</h3>
+            <ol class="space-y-6">
+              <li class="flex">
+                <div class="flex-shrink-0 h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">1</div>
+                <div>
+                  <h4 class="font-semibold text-lg mb-1">创建GitHub仓库</h4>
+                  <p class="text-gray-700">
+                    创建一个名为&lt;您的用户名&gt;.github.io的仓库（例如：username.github.io）
+                  </p>
+                </div>
+              </li>
+              
+              <li class="flex">
+                <div class="flex-shrink-0 h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">2</div>
+                <div>
+                  <h4 class="font-semibold text-lg mb-1">上传文件</h4>
+                  <p class="text-gray-700">
+                    将HTML文件上传到仓库，确保文件名是index.html
+                  </p>
+                </div>
+              </li>
+              
+              <li class="flex">
+                <div class="flex-shrink-0 h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">3</div>
+                <div>
+                  <h4 class="font-semibold text-lg mb-1">启用GitHub Pages</h4>
+                  <p class="text-gray-700">
+                    在仓库设置中找到"Pages"选项，将源设置为"main"分支，点击保存
+                  </p>
+                </div>
+              </li>
+              
+              <li class="flex">
+                <div class="flex-shrink-0 h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">4</div>
+                <div>
+                  <h4 class="font-semibold text-lg mb-1">访问网站</h4>
+                  <p class="text-gray-700">
+                    几分钟后，您的网站将可以通过https://&lt;您的用户名&gt;.github.io访问
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <div class="flex items-center">
+            <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/83c94627f8b44a8fa3d9739eb57f3aac.webp~tplv-a9rns2rl98-24:720:720.webp?rcl=20251128194945B2298AA89321C580C1C9&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1764935386&x-signature=jiGXoTjSCQFQ38xP7oW9ZA%2FMKT0%3D" 
+                 alt="Falcon团队Logo" 
+                 class="h-10 w-auto mr-3">
+            <span class="text-xl font-bold">Falcon</span>
+          </div>
+          <p class="mt-2 text-gray-400">人工智能领域的探索者与建构者</p>
+        </div>
+        
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fa fa-github text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fa fa-twitter text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fa fa-linkedin text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fa fa-envelope text-xl"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500">
+        <p>&copy; 2025 Falcon团队. 保留所有权利.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 图片查看器模态框 -->
+  <div id="image-modal" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4">
+    <button id="close-modal" class="absolute top-4 right-4 text-white text-2xl hover:text-gray-300">
+      <i class="fa fa-times"></i>
+    </button>
+    <img id="modal-image" src="" alt="团队海报大图" class="max-h-[90vh] max-w-full">
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // 导航栏滚动效果
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-md');
+        navbar.classList.remove('shadow-sm');
+      } else {
+        navbar.classList.remove('shadow-md');
+        navbar.classList.add('shadow-sm');
+      }
+    });
+    
+    // 移动端菜单切换
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // 规则标签页切换
+    const ruleTabs = document.querySelectorAll('.rule-tab');
+    const ruleContents = document.querySelectorAll('.rule-content');
+    
+    ruleTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // 移除所有活动状态
+        ruleTabs.forEach(t => {
+          t.classList.remove('active', 'text-primary', 'border-b-2', 'border-primary');
+          t.classList.add('text-gray-500');
+        });
+        
+        // 添加当前活动状态
+        tab.classList.add('active', 'text-primary', 'border-b-2', 'border-primary');
+        tab.classList.remove('text-gray-500');
+        
+        // 隐藏所有内容
+        ruleContents.forEach(content => {
+          content.classList.add('hidden');
+        });
+        
+        // 显示对应内容
+        const tabId = tab.getAttribute('data-tab');
+        document.getElementById(tabId).classList.remove('hidden');
+      });
+    });
+    
+    // 海报图片查看器
+    const posterImage = document.getElementById('poster-image');
+    const imageModal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const closeModal = document.getElementById('close-modal');
+    
+    posterImage.addEventListener('click', () => {
+      modalImage.src = posterImage.src;
+      imageModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // 防止背景滚动
+    });
+    
+    closeModal.addEventListener('click', () => {
+      imageModal.classList.add('hidden');
+      document.body.style.overflow = 'auto'; // 恢复滚动
+    });
+    
+    // 点击模态框外部关闭
+    imageModal.addEventListener('click', (e) => {
+      if (e.target === imageModal) {
+        imageModal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+    });
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80, // 考虑导航栏高度
+            behavior: 'smooth'
+          });
+          
+          // 关闭移动菜单（如果打开）
+          document.getElementById('mobile-menu').classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
